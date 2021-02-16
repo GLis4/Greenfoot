@@ -1,0 +1,59 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class Mouse here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Mouse extends Actor
+{
+    /**
+     * Act - do whatever the Mouse wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public int speed= 5;
+    public int vSpeed=0;
+    private int aceleration=3;
+    public void act(){
+      keys();
+      fall();
+      checkFall();
+    }
+    
+    public void checkFall(){
+       Actor wood = getOneIntersectingObject(Wood.class);
+        if (wood != null)
+       {
+         int dir = (int)Math.signum(vSpeed);
+         int dist = (wood.getImage().getHeight()+getImage().getHeight())/2+1;
+         setLocation(getX(), wood.getY()-dir*dist);
+         vSpeed = 0;
+       }
+    }
+    
+    public void fall(){
+        setLocation(getX(), getY()+vSpeed);
+        vSpeed = vSpeed + aceleration;
+    }
+    public void keys() 
+    {
+        if(Greenfoot.isKeyDown("left")){
+            setLocation(getX()-speed, getY());
+        }
+        if(Greenfoot.isKeyDown("right")){ 
+            setLocation(getX()+speed, getY());
+        }
+        if(isAtEdge()){
+             getWorld().showText("You Lose", 300, 200);
+             Greenfoot.stop();
+        }
+        if(isTouching(Cheese.class)){
+            removeTouching(Cheese.class);
+            getWorld().showText("You Win!", 300, 200);
+            Greenfoot.stop();
+        }
+    }
+}
+       
+
