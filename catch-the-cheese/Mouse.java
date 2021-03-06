@@ -17,6 +17,8 @@ public class Mouse extends Actor
     private int aceleration=3;
     int checkCheese=0; 
     public void act(){
+       
+        
         keys();
         fall();
         checkFall();
@@ -55,7 +57,12 @@ public class Mouse extends Actor
     }
 
     void checkWinandLose(){
-       
+        
+        if(getY() == 323 && getX() > 99 && getX() < 109 && checkCheese==1){
+            getWorld().showText("You Win!", 300, 200);
+            Greenfoot.stop();
+        }
+        
         if(isAtEdge()){
             getWorld().showText("You Lose", 300, 200);
             Greenfoot.stop();
@@ -64,10 +71,7 @@ public class Mouse extends Actor
             removeTouching(Cheese.class);
             checkCheese++;
         }
-        if(isTouching(House.class) && checkCheese==1){
-            getWorld().showText("You Win!", 300, 200);
-            Greenfoot.stop();
-        }
+        
 
     }
 }
