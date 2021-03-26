@@ -12,6 +12,7 @@ public class BalloonG extends Actor
      * Act - do whatever the BalloonG wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    int counter;
     public void act() 
     {
         // Add your action code here.
@@ -21,11 +22,18 @@ public class BalloonG extends Actor
     void mouseClick()
     {
         MouseInfo mouse = Greenfoot.getMouseInfo();   
-        if(mouse != null){
+       if(mouse != null){
             boolean button = Greenfoot.mousePressed(this);
             if(button==true){
-                getWorld().removeObject(this);
+               setImage("powImage.png");
+            }
+              if(getImage().toString().contains("powImage.png")){
+              counter++;
+            }
+              if(counter== 8){
+              getWorld().removeObject(this);
             }
        } 
+       
     }
 }

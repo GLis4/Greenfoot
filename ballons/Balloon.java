@@ -12,7 +12,7 @@ public class Balloon extends Actor
      * Act - do whatever the Balloon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-     
+      int counter;
     public void act() 
     {
      
@@ -20,10 +20,8 @@ public class Balloon extends Actor
         MouseClick();
       
     }  
-    int counter;
-    
     void MouseClick(){
-        getWorld().showText(""+counter, 50,50);
+        //getWorld().showText(""+counter, 50,50);
         MouseInfo mouse = Greenfoot.getMouseInfo(); 
         if(mouse != null){
             boolean button = Greenfoot.mousePressed(this);
@@ -33,7 +31,7 @@ public class Balloon extends Actor
               if(getImage().toString().contains("powImage.png")){
               counter++;
             }
-              if(counter== 5){
+              if(counter== 8){
               getWorld().removeObject(this);
             }
        } 
