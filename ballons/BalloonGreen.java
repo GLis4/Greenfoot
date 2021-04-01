@@ -1,27 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Balloon here.
+ * Write a description of class BalloonGreen here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Balloon extends Actor
+public class BalloonGreen extends Actor
 {
     /**
-     * Act - do whatever the Balloon wants to do. This method is called whenever
+     * Act - do whatever the BalloonGreen wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+        // Add your action code here.
     int counter;
-     public Balloon(String imgName)
-    {
-      setImage(new GreenfootImage(imgName));
-    
-    }
     public void act() 
     {
         int speed= Greenfoot.getRandomNumber(5);
-       setLocation(getX(), getY()-speed );
+       setLocation(getX(), getY()- speed);
         mouseClick();
     }
     void mouseClick(){
@@ -43,5 +39,5 @@ public class Balloon extends Actor
        } else if(counter== 8){
           getWorld().removeObject(this);                
         }
-    }   
+    }    
 }
