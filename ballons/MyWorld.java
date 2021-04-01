@@ -17,21 +17,22 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1, false); 
-        //addBallon();
-        addObject(new Balloon(), 200, 480);
-        addObject(new BalloonG(),Greenfoot.getRandomNumber(590), 480);
-        addObject(new BalloonP(),Greenfoot.getRandomNumber(200), 480);
-
+        super(500, 700, 1); 
     }
-
+     
     public void act(){
         counter++;
-        if(counter >= 100 || counter>= 200 ){
-            addObject(new Balloon(),Greenfoot.getRandomNumber(600), 480);
-            addObject(new BalloonG(),Greenfoot.getRandomNumber(800), 500);
-            addObject(new BalloonP(),Greenfoot.getRandomNumber(200), 480);
-            addObject(new BalloonB(),Greenfoot.getRandomNumber(700), 480);
+        if(counter >= 50 || counter>= 100 ){
+            
+            
+            Balloon Balloon0 = new Balloon("ballonred.png");
+            addObject(Balloon0,Greenfoot.getRandomNumber(500), 780);
+            Balloon Balloon1 = new Balloon("ballonblue.png");
+            addObject(Balloon1,Greenfoot.getRandomNumber(600), 780);
+            Balloon Balloon2 = new Balloon("ballongreen.png");
+            addObject(Balloon2,Greenfoot.getRandomNumber(200), 780);
+            Balloon Balloon3 = new Balloon("ballonpurple.png");
+            addObject(Balloon3,Greenfoot.getRandomNumber(500), 780);
 
             counter= 0;
         }     
